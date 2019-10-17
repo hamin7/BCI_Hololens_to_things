@@ -6,8 +6,10 @@ public class TriggerUDP : MonoBehaviour {
 
     public GameObject UDPCommGameObject;
 
-    public string StartTrigger;
-    public string EndTrigger;
+    public string StartTriggerMiddleWare = "HololenseHY#Star#01#Start";
+    public string EndTriggerMiddleWare = "HololenseHY#Star#01#End";
+    public string StartTriggerMatlab = "a";
+    public string EndTriggerMatlab = "b";
 
     void Start()
     {
@@ -23,17 +25,20 @@ public class TriggerUDP : MonoBehaviour {
     {
         if ((Star_1.checker_1 == 0 && Star_1.checker_2 == 1))
         {
-            Debug.Log("Starting Point: " + StartTrigger);
+            Debug.Log("Starting Point: " + StartTriggerMiddleWare);
 
-            if (StartTrigger != null)
+            if ((StartTriggerMiddleWare != null)&&(StartTriggerMatlab != null))
             {
                 // UTF-8 is real
-                var dataBytes = System.Text.Encoding.UTF8.GetBytes(StartTrigger);
+                var dataBytesMiddleWare = System.Text.Encoding.UTF8.GetBytes(StartTriggerMiddleWare);
+                // HM 추가함.
+                var dataBytesMatlab = System.Text.Encoding.UTF8.GetBytes(StartTriggerMatlab);
                 UDPCommunication comm = UDPCommGameObject.GetComponent<UDPCommunication>();
 
                 // #if is required because SendUDPMessage() is async
 #if !UNITY_EDITOR
-			comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytes); 
+            comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytesMiddleWare); 
+			comm.SendUDPMessage("192.168.1.213", "8054", dataBytesMatlab); 
 #endif
             }
         }
@@ -41,17 +46,20 @@ public class TriggerUDP : MonoBehaviour {
 
         if ((Star_1.checker_1 == 1 && Star_1.checker_2 == 0) )
         {
-            Debug.Log("Ending Point: " + EndTrigger);
+            Debug.Log("Ending Point: " + EndTriggerMiddleWare);
 
-            if (EndTrigger != null)
+            if((EndTriggerMiddleWare != null)&&(EndTriggerMatlab != null))
             {
                 // UTF-8 is real
-                var dataBytes = System.Text.Encoding.UTF8.GetBytes(EndTrigger);
+                var dataBytesMiddleWare = System.Text.Encoding.UTF8.GetBytes(EndTriggerMiddleWare);
+                // HM 추가함.
+                var dataBytesMatlab = System.Text.Encoding.UTF8.GetBytes(EndTriggerMatlab);
                 UDPCommunication comm = UDPCommGameObject.GetComponent<UDPCommunication>();
 
                 // #if is required because SendUDPMessage() is async
 #if !UNITY_EDITOR
-			comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytes);
+            comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytesMiddleWare); 
+			comm.SendUDPMessage("192.168.1.213", "8054", dataBytesMatlab);
 #endif
             }
         }

@@ -6,7 +6,8 @@ public class UDPGeneration : MonoBehaviour {
 
 	public GameObject UDPCommGameObject;
 
-	public string DataString = "UDP is real.";
+	public string DataStringMiddleWare = "UDP is real.";
+    public string DataStringMatlab = "UDP is real.";
 
     public first firstSphere;
 
@@ -25,33 +26,33 @@ public class UDPGeneration : MonoBehaviour {
 
         if (MarkerControl.onSelect) //Boundingbox 스크립트에서  Gaze 연산, 판별해서 정적 변수 onSelect에 bool값 할당
         {
-            if(DataString != null)
+            if((DataStringMiddleWare != null) && (DataStringMatlab != null))
             {
 
                 if (MarkerControl.SelectedMarker == "Robot")
                 {
-                    DataString = "1";
-
+                    DataStringMiddleWare = "HanYang#QR#1";
+                    DataStringMatlab = "1";
                 }
                 else if (MarkerControl.SelectedMarker == "Hum")
                 {
-                    DataString = "3";
-
+                    DataStringMiddleWare = "HanYang#QR#3";
+                    DataStringMatlab = "3";
                 }
                 else if (MarkerControl.SelectedMarker == "Air")
                 {
-                    DataString = "2";
-
+                    DataStringMiddleWare = "HanYang#QR#2";
+                    DataStringMatlab = "2";
                 }
                 else if (MarkerControl.SelectedMarker == "AC")
                 {
-                    DataString = "4";
-
+                    DataStringMiddleWare = "HanYang#QR#4";
+                    DataStringMatlab = "4";
                 }
                 else if (MarkerControl.SelectedMarker == "Bulb")
                 {
-                    DataString = "5";
-
+                    DataStringMiddleWare = "HanYang#QR#5";
+                    DataStringMatlab = "5";
                 }
                 /*
                  * HM중요 - 기기 추가시 이런 형태로 else if 문단 하나 더 추가해주기
@@ -63,7 +64,8 @@ public class UDPGeneration : MonoBehaviour {
                 */
 
                 //DataString = "onSelect UDP value"; // 조율 후 수정해야할 값
-                var dataBytes = System.Text.Encoding.UTF8.GetBytes(DataString);
+                var dataBytesMiddleWare = System.Text.Encoding.UTF8.GetBytes(DataStringMiddleWare);
+                var dataBytesMatlab = System.Text.Encoding.UTF8.GetBytes(DataStringMatlab);
                 UDPCommunication comm = UDPCommGameObject.GetComponent<UDPCommunication>();
 
                 //IP 주소: 192.168.1.214  포트번호: 8054         트라이얼 받는 포트번호:  8053    홀로렌즈는 8052 포트 열어서 듣기
@@ -74,8 +76,8 @@ public class UDPGeneration : MonoBehaviour {
                 //comm.SendUDPMessage(string IP주소, string 포트번호, );
 
 #if !UNITY_EDITOR
-                comm.SendUDPMessage("192.168.1.213", "8054", dataBytes); 
-                comm.SendUDPMessage("192.168.1.37", "8053", dataBytes);
+                comm.SendUDPMessage("192.168.1.213", "8054", dataBytesMatlab); 
+                comm.SendUDPMessage("192.168.1.37", "8053", dataBytesMiddleWare);
 
 #endif
 
@@ -85,20 +87,24 @@ public class UDPGeneration : MonoBehaviour {
 
         if (first.checker_1 == 0 && first.checker_2 == 1)
         {
-            DataString = firstSphere.start;
-            Debug.Log("Starting Point: " + firstSphere.start + "\nDataString: " + DataString);
+            DataStringMiddleWare = firstSphere.start;
+            DataStringMatlab = "a";
+            Debug.Log("Starting Point: " + firstSphere.start + "\nDataString: " + DataStringMiddleWare);
 
-            if (DataString != null)
+            if (DataStringMiddleWare != null)
             {
                 // UTF-8 is real
-                var dataBytes = System.Text.Encoding.UTF8.GetBytes(DataString);
+                var dataBytesMiddleWare = System.Text.Encoding.UTF8.GetBytes(DataStringMiddleWare);
+                // HM 추가함.
+                var dataBytesMatlab = System.Text.Encoding.UTF8.GetBytes(DataStringMatlab);
                 UDPCommunication comm = UDPCommGameObject.GetComponent<UDPCommunication>();
 
                 /*HM 중요 IP 주소 변경: UDP 값을 보내야하는 IP 주소와 포트번호가 바뀔경우 */
                 //comm.SendUDPMessage(string IP주소, string 포트번호, );
                 //매트랩에 시작 트리거 보내주기
 #if !UNITY_EDITOR
-			comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytes); 
+			comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytesMiddleWare);
+             comm.SendUDPMessage("192.168.1.213", "8054", dataBytesMatlab); 
 #endif
             }
         }
@@ -106,20 +112,25 @@ public class UDPGeneration : MonoBehaviour {
 
         if (first.checker_1 == 1 && first.checker_2 == 0)
         {
-            DataString = firstSphere.end;
-            Debug.Log("Ending Point: " + firstSphere.end + "\nDataString: " + DataString);
+            DataStringMiddleWare = firstSphere.end;
+            //HM 추가함.
+            DataStringMatlab = "b";
+            Debug.Log("Ending Point: " + firstSphere.end + "\nDataString: " + DataStringMiddleWare);
 
-            if (DataString != null)
+            if (DataStringMiddleWare != null)
             {
                 // UTF-8 is real
-                var dataBytes = System.Text.Encoding.UTF8.GetBytes(DataString);
+                var dataBytesMiddleWare = System.Text.Encoding.UTF8.GetBytes(DataStringMiddleWare);
+                // HM 추가함.
+                var dataBytesMatlab = System.Text.Encoding.UTF8.GetBytes(DataStringMatlab);
                 UDPCommunication comm = UDPCommGameObject.GetComponent<UDPCommunication>();
 
                 /*HM 중요 IP 주소 변경: UDP 값을 보내야하는 IP 주소와 포트번호가 바뀔경우 */
                 //comm.SendUDPMessage(string IP주소, string 포트번호, );
                 //매트랩에 끝 트리거 보내주기
 #if !UNITY_EDITOR
-			comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytes);
+			comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytesMiddleWare);
+            comm.SendUDPMessage("192.168.1.213", "8054", dataBytesMatlab); 
 #endif
             }
         }
