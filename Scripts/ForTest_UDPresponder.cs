@@ -105,10 +105,10 @@ public class ForTest_UDPresponder : MonoBehaviour {
                 SceneManager.LoadScene("QR");
                 //MarkerControl.SystemON(); //ERROR: 안먹힘
                 break;
-            case "SSVEP": //MethodSelect[0] 하면 '상수값이 필요합니다' 에러 메시지 뜸.
+            case "80": //MethodSelect[0] 하면 '상수값이 필요합니다' 에러 메시지 뜸.
                 SceneManager.LoadScene("SSVEP");
                 break;
-            case "100"://"Eye"
+            case "120"://"Eye"
                 SceneManager.LoadScene("Eye");
                 //EyeWritingControl 에서 StimuliSet 정적변수에 해당 씬의 CommandStimuli 할당 후 비활성화시킴
                 break;
@@ -168,9 +168,9 @@ public class ForTest_UDPresponder : MonoBehaviour {
         {
             SceneManager.LoadScene("IntroScene");
             //MarkerControl.isFirstStage = false;
-        }else if(dataString == "80"){ //눈 8번 깜빡임값
+        }else if(dataString == "SSVEP"){ //눈 8번 깜빡임값
             SceneManager.LoadScene("SSVEP");
-        }else if(dataString == "120") //눈 12번 깜빡임값
+        }else if(dataString == "100") //눈 12번 깜빡임값
         {
             SceneManager.LoadScene("Eye");
         }
