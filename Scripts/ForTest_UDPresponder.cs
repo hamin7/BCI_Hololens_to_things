@@ -233,7 +233,11 @@ public class ForTest_UDPresponder : MonoBehaviour {
                 case "9":
                     break;
 
-                default:
+                case "100":
+                    SceneManager.LoadScene("Eye");
+                    break;
+
+            default:
                     break;
             }
         

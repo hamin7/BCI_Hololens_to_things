@@ -38,7 +38,7 @@ public class TriggerUDP : MonoBehaviour {
                 // #if is required because SendUDPMessage() is async
 #if !UNITY_EDITOR
             comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytesMiddleWare); 
-			comm.SendUDPMessage("192.168.1.213", "8054", dataBytesMatlab); 
+			comm.SendUDPMessage("1255.255.255.255", "8054", dataBytesMatlab); 
 #endif
             }
         }
@@ -59,7 +59,7 @@ public class TriggerUDP : MonoBehaviour {
                 // #if is required because SendUDPMessage() is async
 #if !UNITY_EDITOR
             comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytesMiddleWare); 
-			comm.SendUDPMessage("192.168.1.213", "8054", dataBytesMatlab);
+			comm.SendUDPMessage("255.255.255.255", "8054", dataBytesMatlab);
 #endif
             }
         }
@@ -74,7 +74,7 @@ public class TriggerUDP : MonoBehaviour {
 
             // #if is required because SendUDPMessage() is async
 #if !UNITY_EDITOR
-			comm.SendUDPMessage("192.168.1.213", "8054", dataBytes);
+			comm.SendUDPMessage("255.255.255.255", "8054", dataBytes);
 #endif
         }
 

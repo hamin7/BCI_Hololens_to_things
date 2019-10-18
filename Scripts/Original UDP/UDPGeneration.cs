@@ -76,8 +76,8 @@ public class UDPGeneration : MonoBehaviour {
                 //comm.SendUDPMessage(string IP주소, string 포트번호, );
 
 #if !UNITY_EDITOR
-                comm.SendUDPMessage("192.168.1.213", "8054", dataBytesMatlab); 
-                comm.SendUDPMessage("192.168.1.37", "8053", dataBytesMiddleWare);
+                comm.SendUDPMessage("255.255.255.255", "8054", dataBytesMatlab); 
+                comm.SendUDPMessage("255.255.255.255", "8053", dataBytesMiddleWare);
 
 #endif
 
@@ -104,7 +104,7 @@ public class UDPGeneration : MonoBehaviour {
                 //매트랩에 시작 트리거 보내주기
 #if !UNITY_EDITOR
 			comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytesMiddleWare);
-             comm.SendUDPMessage("192.168.1.213", "8054", dataBytesMatlab); 
+             comm.SendUDPMessage("255.255.255.255", "8054", dataBytesMatlab); 
 #endif
             }
         }
@@ -130,7 +130,7 @@ public class UDPGeneration : MonoBehaviour {
                 //매트랩에 끝 트리거 보내주기
 #if !UNITY_EDITOR
 			comm.SendUDPMessage(comm.externalIP, comm.externalPort, dataBytesMiddleWare);
-            comm.SendUDPMessage("192.168.1.213", "8054", dataBytesMatlab); 
+            comm.SendUDPMessage("255.255.255.255", "8054", dataBytesMatlab); 
 #endif
             }
         }
