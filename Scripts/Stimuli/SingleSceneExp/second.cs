@@ -167,6 +167,7 @@ public class second : MonoBehaviour {
 
         while (true)
         {
+            //
             yield return StartCoroutine(WaitFor.Frames(7));
 
             GOtransform.localScale = scales[currentScale];
