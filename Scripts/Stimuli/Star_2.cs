@@ -11,6 +11,9 @@ public class Star_2 : MonoBehaviour {
 
     public int FrameCount;
 
+    //시간기반
+    public float timeCount;
+
     void Start() {
         currentScale = 0;
 
@@ -79,8 +82,11 @@ public class Star_2 : MonoBehaviour {
 
         while (true)
         {
-            //yield return StartCoroutine(WaitFor.Frames(7));
-            yield return StartCoroutine(WaitFor.Frames(FrameCount));
+            //프레임기반 (시간기반 코드 주석처리해야함)
+            //yield return StartCoroutine(WaitFor.Frames(FrameCount));
+
+            //시간기반  (프레임기반 코드 주석처리해야함)
+            yield return new WaitForSeconds(timeCount);
 
             //아이콘 크기를 Star_1와 별개로 지정해야한다면 이 스크립트에 새로운 배열 선언해서 사용하기 
 

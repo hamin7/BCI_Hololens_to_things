@@ -19,7 +19,8 @@ public class SSVEPsetting : MonoBehaviour {
         Star_1.IconColors = CommandIconColors;
 
         Star_1.TrialDuration = TrialDuration - 0.3f; // 실제 TrialDuration 보다 0.3초정도 더 걸려서 미리 빼줌.
-        Star_1.TimeBetweenTrial = TimeBetweenTrial;
+        //Star_1.TimeBetweenTrial = TimeBetweenTrial;
+        Star_1.TimeBetweenTrial = 8f;
     }
 
 }

@@ -25,6 +25,9 @@ public class Star_1 : MonoBehaviour {
     public TextMesh CenterOfStimuli;
     public int FrameCount;
 
+    //시간기반
+    public float timeCount;
+
     void Start () {
         currentScale = 0;
         secCount = 0;
@@ -102,8 +105,11 @@ public class Star_1 : MonoBehaviour {
 
         while (true)
         {
+            //프레임기반 (시간기반 코드 주석처리해야함)
+            //yield return StartCoroutine(WaitFor.Frames(FrameCount));
 
-            yield return StartCoroutine(WaitFor.Frames(FrameCount));
+            //시간기반  (프레임기반 코드 주석처리해야함)
+            yield return new WaitForSeconds(timeCount);
 
             GOtransform.localScale = Scales[currentScale];
             GOspriterenderer.color = Colors[currentScale];
