@@ -103,9 +103,12 @@ public class first : MonoBehaviour {
 
         while (true)
         {
-            yield return new WaitForSeconds(0.133f);  // 시간 넣기
-           // yield return StartCoroutine(WaitFor.Frames(8));
+            // 프레임 기반
+            // yield return StartCoroutine(WaitFor.Frames(8));
 
+            // 시간 기반
+            yield return new WaitForSeconds(0.133f);  // 시간 넣기
+            
             GOtransform.localScale = scales[currentScale];
             GOspriterenderer.color = colors[currentScale];
             OnOff.color = IconColors[currentScale];

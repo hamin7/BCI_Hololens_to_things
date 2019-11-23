@@ -150,7 +150,11 @@ public class third : MonoBehaviour {
 
         while (true)
         {
-            yield return StartCoroutine(WaitFor.Frames(6));
+            // 프레임 기반 코드
+            //yield return StartCoroutine(WaitFor.Frames(6));
+
+            // 시간 기반
+            yield return new WaitForSeconds(0.1f);
 
             GOtransform.localScale = scales[currentScale];
             GOspriterenderer.color = colors[currentScale];

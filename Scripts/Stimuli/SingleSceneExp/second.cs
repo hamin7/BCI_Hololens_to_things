@@ -175,7 +175,8 @@ public class second : MonoBehaviour {
         while (true)
         {
             //
-            yield return StartCoroutine(WaitFor.Frames(7));
+            //yield return StartCoroutine(WaitFor.Frames(7));
+            yield return new WaitForSeconds(0.1166666f);
 
             GOtransform.localScale = scales[currentScale];
             GOspriterenderer.color = colors[currentScale];

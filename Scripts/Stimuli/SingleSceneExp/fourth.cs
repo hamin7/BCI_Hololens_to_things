@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class fourth : MonoBehaviour {
+public class fourth : MonoBehaviour
+{
 
     Vector3[] scales = new[] { new Vector3(0.03f, 0.03f, 0.03f), new Vector3(0.04f, 0.04f, 0.04f) };
 
@@ -10,14 +11,14 @@ public class fourth : MonoBehaviour {
     Color[] IconColors = new[] { new Color(0f, 0f, 0f), new Color(1f, 1f, 1f) };
 
     int currentScale;
-    float secCount;
 
     public SpriteRenderer Return;
     Transform GOtransform;
     SpriteRenderer GOspriterenderer;
 
 
-    void Start () {
+    void Start()
+    {
         currentScale = 0;
 
         GOtransform = gameObject.GetComponent<Transform>();
@@ -39,7 +40,8 @@ public class fourth : MonoBehaviour {
 
     IEnumerator revisedSwitching()
     {
-        if (secCount == 0)
+        //yield return new WaitForSeconds(6f);
+        if (first.secCount == 0)
         {
             yield return new WaitForSeconds(3f);
         }
@@ -50,7 +52,12 @@ public class fourth : MonoBehaviour {
 
         while (true)
         {
-            yield return StartCoroutine(WaitFor.Frames(5));
+            // 프레임 기반 코드
+            //yield return StartCoroutine(WaitFor.Frames(5));
+
+            // 시간 기반
+            yield return new WaitForSeconds(0.083f);
+
             GOtransform.localScale = scales[currentScale];
             GOspriterenderer.color = colors[currentScale];
             Return.color = IconColors[currentScale];
@@ -58,7 +65,7 @@ public class fourth : MonoBehaviour {
             currentScale += 1;
             currentScale %= 2;
 
-            if (currentScale == 1 && first.tempTime - first.secCount>2.2f)
+            if (currentScale == 1 && first.tempTime - first.secCount > 2.2f)
             {
                 yield return new WaitForSecondsRealtime(8f);
             }
