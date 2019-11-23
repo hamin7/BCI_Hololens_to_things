@@ -28,7 +28,6 @@ public class third : MonoBehaviour {
         currentScale = 0;
         GOtransform = gameObject.GetComponent<Transform>();
         GOspriterenderer = gameObject.GetComponent<SpriteRenderer>();
-
         IconScales[0] = new Vector3(0.04f, 0.04f, 1f);//Icon 교체시 localScale값 수정필요할 수 있음
     }
     private void OnEnable()
@@ -163,7 +162,7 @@ public class third : MonoBehaviour {
 
             if (currentScale == 1 && first.tempTime - first.secCount > 2.2f)
             {
-                yield return new WaitForSecondsRealtime(6f);
+                yield return new WaitForSecondsRealtime(8f);
 
             }
         }

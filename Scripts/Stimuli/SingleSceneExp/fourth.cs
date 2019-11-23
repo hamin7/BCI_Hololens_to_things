@@ -60,7 +60,7 @@ public class fourth : MonoBehaviour {
 
             if (currentScale == 1 && first.tempTime - first.secCount>2.2f)
             {
-                yield return new WaitForSecondsRealtime(6f);
+                yield return new WaitForSecondsRealtime(8f);
             }
         }
 

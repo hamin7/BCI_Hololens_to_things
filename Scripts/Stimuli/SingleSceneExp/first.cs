@@ -129,7 +129,7 @@ public class first : MonoBehaviour {
                 checker_2 = 0;
 
                 StartCoroutine(CountDown());
-                yield return new WaitForSecondsRealtime(6f);
+                yield return new WaitForSecondsRealtime(8f);
                 
                 //pause 후 시작시점에 secCount 새값 할당
                 secCount = Time.time;

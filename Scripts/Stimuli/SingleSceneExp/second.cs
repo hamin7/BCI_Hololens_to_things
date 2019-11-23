@@ -159,7 +159,7 @@ public class second : MonoBehaviour {
         }
         */
         //IconScales[0] = Command.transform.localScale;
-        IconScales[1] = IconScales[0] * 1.33f;
+        //IconScales[1] = IconScales[0] * 1.33f;
 
         if (secCount == 0)
         {
@@ -195,7 +195,7 @@ public class second : MonoBehaviour {
 
             if (currentScale == 1 && first.tempTime - first.secCount > 2.2f)
             {
-                yield return new WaitForSecondsRealtime(6f);
+                yield return new WaitForSecondsRealtime(8f);
             }
         }
 
