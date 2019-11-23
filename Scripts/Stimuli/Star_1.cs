@@ -52,15 +52,15 @@ public class Star_1 : MonoBehaviour {
     IEnumerator CountDown()
     {
         //첫 트라이얼만 3초 쉬고 시작. secCount = 0 일때 스킵
-        //secCount 0 넘고나서 부터는 앞에도 3초쉬고 뒤에서도 3초 쉬기
+        //secCount 0 넘고나서 부터는 앞에도 5초쉬고 뒤에서도 5초 쉬기
         //CommandStimuli만 해당되는 명령어
-        if (gameObject.transform.root.name == "CommandStimuli")
-        {
+        //if (gameObject.transform.root.name == "CommandStimuli")
+        //{
             if (secCount != 0)
             {
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(5f);
             }
-        }
+        //}
 
         CenterOfStimuli.fontSize = 170;
         CenterOfStimuli.text = "3";

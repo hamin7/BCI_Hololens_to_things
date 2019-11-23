@@ -140,7 +140,14 @@ public class third : MonoBehaviour {
         //IconScales[0] = Command.transform.localScale;
         //IconScales[1] = IconScales[0] * 1.33f;
 
-        yield return new WaitForSeconds(6f);
+        if (secCount == 0)
+        {
+            yield return new WaitForSeconds(3f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(8f);
+        }
 
         while (true)
         {

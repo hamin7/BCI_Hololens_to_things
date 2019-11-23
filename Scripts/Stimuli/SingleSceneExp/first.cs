@@ -52,7 +52,14 @@ public class first : MonoBehaviour {
     }
     IEnumerator CountDown()
     {
-        yield return new WaitForSeconds(3f);
+        //첫 트라이얼만 3초 쉬고 시작. secCount = 0 일때 스킵
+        //secCount 0 넘고나서 부터는 앞에도 5초쉬고 뒤에서도 5초 쉬기
+        if (secCount != 0)
+        {
+            yield return new WaitForSeconds(5f);
+        }
+
+        //yield return new WaitForSeconds(5f);
         CenterOfStimuli.fontSize=170;
         CenterOfStimuli.text = "3";
         yield return new WaitForSeconds(1f);
@@ -71,7 +78,17 @@ public class first : MonoBehaviour {
         CenterOfStimuli.fontSize = 48;
         CenterOfStimuli.text = "잠시후\n시작됩니다";
         StartCoroutine(CountDown());
-        yield return new WaitForSeconds(6f);
+
+        // 첫 트라이얼만 5초 더 쉬고 시작
+        if(secCount == 0)
+        {
+            yield return new WaitForSeconds(3f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(8f);
+        }
+        
         secCount = Time.time;
 
         //STARTING POINT    
@@ -86,8 +103,8 @@ public class first : MonoBehaviour {
 
         while (true)
         {
-            
-            yield return StartCoroutine(WaitFor.Frames(8));
+            yield return new WaitForSeconds(0.133f);  // 시간 넣기
+           // yield return StartCoroutine(WaitFor.Frames(8));
 
             GOtransform.localScale = scales[currentScale];
             GOspriterenderer.color = colors[currentScale];

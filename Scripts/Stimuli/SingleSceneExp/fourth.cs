@@ -10,6 +10,7 @@ public class fourth : MonoBehaviour {
     Color[] IconColors = new[] { new Color(0f, 0f, 0f), new Color(1f, 1f, 1f) };
 
     int currentScale;
+    float secCount;
 
     public SpriteRenderer Return;
     Transform GOtransform;
@@ -38,7 +39,14 @@ public class fourth : MonoBehaviour {
 
     IEnumerator revisedSwitching()
     {
-        yield return new WaitForSeconds(6f);
+        if (secCount == 0)
+        {
+            yield return new WaitForSeconds(3f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(8f);
+        }
 
         while (true)
         {
