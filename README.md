@@ -1,6 +1,6 @@
 # BCI_Hololens_to_things
 
-### 새로운 버전 빌드시
+### 새로운 버전 빌드 시
 
   1. Unity project 파일 다른 이름으로 저장
   1. Unity build Settings 에서 Player Settings 선택
