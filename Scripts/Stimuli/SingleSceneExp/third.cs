@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class third : MonoBehaviour {
+public class third : MonoBehaviour
+{
 
     Vector3[] scales = new[] { new Vector3(0.03f, 0.03f, 0.03f), new Vector3(0.04f, 0.04f, 0.04f) };
 
@@ -24,7 +25,8 @@ public class third : MonoBehaviour {
     SpriteRenderer GOspriterenderer;
 
 
-    void Start () {
+    void Start()
+    {
         currentScale = 0;
         GOtransform = gameObject.GetComponent<Transform>();
         GOspriterenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -115,21 +117,18 @@ public class third : MonoBehaviour {
         /*
         if (MarkerControl.SelectedMarker == "Robot")
         {
-
             Command = Commands[0];
             Commands[1].color = new Color(0f, 0f, 0f, 0f);
             Commands[2].color = new Color(0f, 0f, 0f, 0f);
         }
         else if (MarkerControl.SelectedMarker == "Hum")
         {
-
             Command = Commands[1];
             Commands[0].color = new Color(0f, 0f, 0f, 0f);
             Commands[2].color = new Color(0f, 0f, 0f, 0f);
         }
         else if (MarkerControl.SelectedMarker == "Air")
         {
-
             Command = Commands[2];
             Commands[1].color = new Color(0f, 0f, 0f, 0f);
             Commands[0].color = new Color(0f, 0f, 0f, 0f);

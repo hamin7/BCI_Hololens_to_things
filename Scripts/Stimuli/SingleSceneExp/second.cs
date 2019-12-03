@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class second : MonoBehaviour {
+public class second : MonoBehaviour
+{
 
     Vector3[] scales = new[] { new Vector3(0.03f, 0.03f, 0.03f), new Vector3(0.04f, 0.04f, 0.04f) };
 
@@ -28,7 +29,8 @@ public class second : MonoBehaviour {
     SpriteRenderer GOspriterenderer;
 
 
-    void Start () {
+    void Start()
+    {
         currentScale = 0;
 
         GOtransform = gameObject.GetComponent<Transform>();
@@ -44,9 +46,9 @@ public class second : MonoBehaviour {
         if (MarkerControl.SelectedMarker == "Robot")
         {
 
-            for(int i =0; i < Commands.Length; i++)
+            for (int i = 0; i < Commands.Length; i++)
             {
-                if(Commands[i].name == "RVC")
+                if (Commands[i].name == "RVC")
                     Command = Commands[i]; //Commands의 첫번째 선택
 
                 else//그외의 아이템들은 다 투명화시켜버림
@@ -132,34 +134,29 @@ public class second : MonoBehaviour {
         /*
         if (MarkerControl.SelectedMarker == "Robot")
         {
-
             Command = Commands[0];
             Commands[1].color = new Color(0f, 0f, 0f, 0f);
             Commands[2].color = new Color(0f, 0f, 0f, 0f);
         }
         else if (MarkerControl.SelectedMarker == "Hum")
         {
-
             Command = Commands[1];
             Commands[0].color = new Color(0f, 0f, 0f, 0f);
             Commands[2].color = new Color(0f, 0f, 0f, 0f);
-
             turbos[0].color = new Color(0f, 0f, 0f, 0f);
             turbos[1].color = new Color(0f, 0f, 0f, 0f);
         }
         else if (MarkerControl.SelectedMarker == "Air")
         {
-
             Command = Commands[2];
             Commands[1].color = new Color(0f, 0f, 0f, 0f);
             Commands[0].color = new Color(0f, 0f, 0f, 0f);
-
             turbos[0].color = new Color(0f, 0f, 0f, 0f);
             turbos[1].color = new Color(0f, 0f, 0f, 0f);
         }
         */
         //IconScales[0] = Command.transform.localScale;
-        //IconScales[1] = IconScales[0] * 1.33f;
+        IconScales[1] = IconScales[0] * 1.33f;
 
         if (secCount == 0)
         {
@@ -208,14 +205,14 @@ public class second : MonoBehaviour {
         //Command 아이콘 참조는 start 에서 하면 안됨 - MarkerControl.Selected.. 정적변수 아직 null 인 시점이라서 
         if (MarkerControl.SelectedMarker == "Robot")
         {
-           
+
             Command = Commands[0];
             Commands[1].color = new Color(0f, 0f, 0f, 0f);
             Commands[2].color = new Color(0f, 0f, 0f, 0f);
         }
         else if (MarkerControl.SelectedMarker == "Hum")
         {
-            
+
             Command = Commands[1];
             Commands[0].color = new Color(0f, 0f, 0f, 0f);
             Commands[2].color = new Color(0f, 0f, 0f, 0f);
@@ -225,7 +222,7 @@ public class second : MonoBehaviour {
         }
         else if (MarkerControl.SelectedMarker == "Air")
         {
-            
+
             Command = Commands[2];
             Commands[1].color = new Color(0f, 0f, 0f, 0f);
             Commands[0].color = new Color(0f, 0f, 0f, 0f);
@@ -255,7 +252,7 @@ public class second : MonoBehaviour {
                 turbos[0].color = IconColors[currentScale];
                 turbos[1].color = IconColors[currentScale];
             }
-            
+
 
             currentScale += 1;
             currentScale %= 2;

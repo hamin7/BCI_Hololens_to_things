@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SSVEPsetting : MonoBehaviour {
+public class SSVEPsetting : MonoBehaviour
+{
 
     //public int TrialCount;
     public float TrialDuration;

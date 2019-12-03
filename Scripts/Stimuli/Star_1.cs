@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Star_1 : MonoBehaviour {
+public class Star_1 : MonoBehaviour
+{
 
     public SSVEPsetting setting;
     public static Vector3[] Scales;
@@ -28,7 +29,8 @@ public class Star_1 : MonoBehaviour {
     //시간기반
     public float timeCount;
 
-    void Start () {
+    void Start()
+    {
         currentScale = 0;
         secCount = 0;
 
@@ -56,10 +58,10 @@ public class Star_1 : MonoBehaviour {
         //CommandStimuli만 해당되는 명령어
         //if (gameObject.transform.root.name == "CommandStimuli")
         //{
-            if (secCount != 0)
-            {
-                yield return new WaitForSeconds(5f);
-            }
+        if (secCount != 0)
+        {
+            yield return new WaitForSeconds(5f);
+        }
         //}
 
         CenterOfStimuli.fontSize = 170;
@@ -84,7 +86,7 @@ public class Star_1 : MonoBehaviour {
         //첫 트라이얼만 3초 더 쉬고 시작
         if (secCount == 0)
         {
-                yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(3f);
         }
         else
         {
@@ -120,7 +122,7 @@ public class Star_1 : MonoBehaviour {
 
             tempTime = Time.time;
 
-            if (currentScale == 1 && tempTime - secCount > TrialDuration )
+            if (currentScale == 1 && tempTime - secCount > TrialDuration)
             {
                 //ENDING POINT
                 checker_1 = 1;

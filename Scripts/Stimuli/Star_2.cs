@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Star_2 : MonoBehaviour {
+public class Star_2 : MonoBehaviour
+{
 
     int currentScale;
     Transform GOtransform;
@@ -14,7 +15,8 @@ public class Star_2 : MonoBehaviour {
     //시간기반
     public float timeCount;
 
-    void Start() {
+    void Start()
+    {
         currentScale = 0;
 
         GOtransform = gameObject.GetComponent<Transform>();
@@ -23,8 +25,8 @@ public class Star_2 : MonoBehaviour {
         /*HM 중요  */
         if (gameObject.name == "Star_4" || transform.root.name == "ApplianceStimuli")
             Icon = transform.GetChild(0).transform.GetComponent<SpriteRenderer>();
-        
-        else if(ForTest_UDPresponder.ApplianceSelect == "MiddleWare#HanYang#SelectDevice#RVC" )//
+
+        else if (ForTest_UDPresponder.ApplianceSelect == "MiddleWare#HanYang#SelectDevice#RVC")//
         {
             Icon = transform.Find("RVC").transform.GetComponent<SpriteRenderer>();
         }
@@ -32,7 +34,7 @@ public class Star_2 : MonoBehaviour {
         {
             Icon = transform.Find("Air1").transform.GetComponent<SpriteRenderer>();
         }
-        else if (ForTest_UDPresponder.ApplianceSelect == "MiddleWare#HanYang#SelectDevice#AirCleaner#02"  )//
+        else if (ForTest_UDPresponder.ApplianceSelect == "MiddleWare#HanYang#SelectDevice#AirCleaner#02")//
         {
             Icon = transform.Find("Air2").transform.GetComponent<SpriteRenderer>();
         }
@@ -73,7 +75,7 @@ public class Star_2 : MonoBehaviour {
         if (Star_1.secCount == 0)
         {
             //if (gameObject.transform.root.name == "CommandStimuli")
-                yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(3f);
         }
         else
         {

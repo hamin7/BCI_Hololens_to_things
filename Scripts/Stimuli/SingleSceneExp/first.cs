@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class first : MonoBehaviour {
+public class first : MonoBehaviour
+{
 
     Vector3[] scales = new[] { new Vector3(0.03f, 0.03f, 0.03f), new Vector3(0.04f, 0.04f, 0.04f) };
 
@@ -24,7 +25,8 @@ public class first : MonoBehaviour {
     public TextMesh CenterOfStimuli;
 
 
-    void Start () {
+    void Start()
+    {
         currentScale = 0;
         //start = "01";
         //end = "10";
@@ -36,7 +38,7 @@ public class first : MonoBehaviour {
         GOtransform = gameObject.GetComponent<Transform>();
         GOspriterenderer = gameObject.GetComponent<SpriteRenderer>();
     }
-	
+
 
     private void OnEnable()
     {
@@ -60,7 +62,7 @@ public class first : MonoBehaviour {
         }
 
         //yield return new WaitForSeconds(5f);
-        CenterOfStimuli.fontSize=170;
+        CenterOfStimuli.fontSize = 170;
         CenterOfStimuli.text = "3";
         yield return new WaitForSeconds(1f);
 
@@ -71,7 +73,7 @@ public class first : MonoBehaviour {
         yield return new WaitForSeconds(1f);
 
         CenterOfStimuli.text = "";
-        
+
     }
     IEnumerator revisedSwitching()
     {
@@ -80,7 +82,7 @@ public class first : MonoBehaviour {
         StartCoroutine(CountDown());
 
         // 첫 트라이얼만 5초 더 쉬고 시작
-        if(secCount == 0)
+        if (secCount == 0)
         {
             yield return new WaitForSeconds(3f);
         }
@@ -88,7 +90,7 @@ public class first : MonoBehaviour {
         {
             yield return new WaitForSeconds(8f);
         }
-        
+
         secCount = Time.time;
 
         //STARTING POINT    
@@ -96,9 +98,9 @@ public class first : MonoBehaviour {
         checker_2 = 1;
 
         yield return new WaitForSeconds(0.01f); //0.01초 delay해주어야만 Update()의 한 프레임에서 캐치함
-        
 
-         checker_1 = 1;
+
+        checker_1 = 1;
         checker_2 = 1;
 
         while (true)
@@ -108,7 +110,7 @@ public class first : MonoBehaviour {
 
             // 시간 기반
             yield return new WaitForSeconds(0.133f);  // 시간 넣기
-            
+
             GOtransform.localScale = scales[currentScale];
             GOspriterenderer.color = colors[currentScale];
             OnOff.color = IconColors[currentScale];
@@ -118,14 +120,14 @@ public class first : MonoBehaviour {
 
             tempTime = Time.time;
 
-            if(currentScale == 1 && tempTime - secCount > 2.2f)
+            if (currentScale == 1 && tempTime - secCount > 2.2f)
             {
                 //ENDING POINT
                 checker_1 = 1;
                 checker_2 = 0;
 
-                 yield return new WaitForSeconds(0.01f);
-                
+                yield return new WaitForSeconds(0.01f);
+
 
                 //5초간 pause
                 checker_1 = 0;
@@ -133,7 +135,7 @@ public class first : MonoBehaviour {
 
                 StartCoroutine(CountDown());
                 yield return new WaitForSecondsRealtime(8f);
-                
+
                 //pause 후 시작시점에 secCount 새값 할당
                 secCount = Time.time;
 
@@ -142,7 +144,7 @@ public class first : MonoBehaviour {
                 checker_2 = 1;
 
                 yield return new WaitForSeconds(0.01f); //0.01초 delay해주어야만 Update()의 한 프레임에서 캐치함\
-                
+
 
                 checker_1 = 1;
                 checker_2 = 1;
